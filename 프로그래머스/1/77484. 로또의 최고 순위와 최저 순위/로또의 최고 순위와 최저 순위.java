@@ -39,7 +39,7 @@ class Solution {
             answer[0] = 6;
         }
         answer[1] = 7 - count;
-        if(answer[1] >= 7){
+        if(answer[1] == 7){
             answer[1] = 6;
         }
         
