@@ -6,12 +6,11 @@ public class Main {
 
 
         int n = sc.nextInt();
-        sc.nextLine();
 
 
         for (int i = 0; i < n; i++) {
-            String s = sc.nextLine();
-            if (isVaildParentheses(s)) {
+            String s = sc.next();
+            if (isVaildParentheses(s)) { // 유효한 괄호쌍인지 확인
                 System.out.println("YES");
             }
             else {
@@ -30,13 +29,14 @@ public class Main {
                 stack.push(ch);
 
             } else if (ch == ')') {
-                if (stack.isEmpty()) {
+                if (stack.isEmpty()) { //  스택이 비어있으면 유효하지 않음
                     return false;
-                } else {
+                } else { // 스택의 최상단의 '(' 제거
                     stack.pop();
                 }
             }
         }
+        // 마지막에 스택이 비어있으면 유효한 괄호쌍
         return stack.isEmpty();
     }
 }
