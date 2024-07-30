@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     static int[][] nodes;
-    static boolean[] check;
+    static boolean[] visited;
     static int m;
     static int n;
 
@@ -13,7 +13,7 @@ public class Main {
         m = sc.nextInt();
 
         nodes = new int[n][n];
-        check = new boolean[n];
+        visited = new boolean[n];
 
         for (int i = 0; i < m; i++) {
             int a = sc.nextInt() - 1;
@@ -25,7 +25,7 @@ public class Main {
         int count = 0;
 
         for (int i = 0; i < n; i++) {
-            if (!check[i]) {
+            if (!visited[i]) {
                 dfs(i);
                 count++;
             }
@@ -35,10 +35,10 @@ public class Main {
     }
 
     private static void dfs(int start) {
-        check[start] = true;
+        visited[start] = true;
 
         for (int i = 0; i < n; i++) {
-            if (nodes[start][i] == 1 && !check[i]) {
+            if (nodes[start][i] == 1 && !visited[i]) {
                 dfs(i);
             }
         }
