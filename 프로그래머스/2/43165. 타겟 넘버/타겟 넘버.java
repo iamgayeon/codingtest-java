@@ -1,21 +1,25 @@
+import java.util.*;
+
 class Solution {
-    static int answer;
+    int answer;
     public int solution(int[] numbers, int target) {
+        answer = 0;
+        
         int curr = 0;
         int index = 0;
-        answer = 0;
-        backtrack(curr, index, numbers, target);
+        backtrack(0, 0, numbers, target);
         return answer;
     }
-
-    public void backtrack(int curr, int index, int[]numbers, int target){
+    
+    public void backtrack(int curr, int index, int[] numbers, int target){
         if(index == numbers.length){
             if(curr == target){
-                answer+=1;
+                answer++;
             }
+            
             return;
         }
-        backtrack(curr + numbers[index], index + 1, numbers, target);
-        backtrack(curr - numbers[index], index + 1, numbers, target);
+        backtrack(curr+numbers[index], index+1, numbers, target);
+        backtrack(curr-numbers[index], index+1, numbers, target);
     }
 }
